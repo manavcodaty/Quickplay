@@ -1,9 +1,10 @@
-"""A tic-tac-toe game built with Python and Tkinter."""
+#A tic-tac-toe game built with Python and Tkinter
 
 import tkinter as tk
 from itertools import cycle
 from tkinter import font
 from typing import NamedTuple
+import sys
 
 class Player(NamedTuple):
     label: str
@@ -49,18 +50,18 @@ class TicTacToeGame:
         return rows + columns + [first_diagonal, second_diagonal]
 
     def toggle_player(self):
-        """Return a toggled player."""
+        #Return a toggled player
         self.current_player = next(self._players)
 
     def is_valid_move(self, move):
-        """Return True if move is valid, and False otherwise."""
+        #Return True if move is valid, and False otherwise
         row, col = move.row, move.col
         move_was_not_played = self._current_moves[row][col].label == ""
         no_winner = not self._has_winner
         return no_winner and move_was_not_played
 
     def process_move(self, move):
-        """Process the current move and check if it's a win."""
+        #Process the current move and check if it's a win
         row, col = move.row, move.col
         self._current_moves[row][col] = move
         for combo in self._winning_combos:
@@ -72,11 +73,11 @@ class TicTacToeGame:
                 break
 
     def has_winner(self):
-        """Return True if the game has a winner, and False otherwise."""
+        #Return True if the game has a winner, and False otherwise
         return self._has_winner
 
     def is_tied(self):
-        """Return True if the game is tied, and False otherwise."""
+        #Return True if the game is tied, and False otherwise
         no_winner = not self._has_winner
         played_moves = (
             move.label for row in self._current_moves for move in row
@@ -84,7 +85,7 @@ class TicTacToeGame:
         return no_winner and all(played_moves)
 
     def reset_game(self):
-        """Reset the game state to play again."""
+        #Reset the game state to play again
         for row, row_content in enumerate(self._current_moves):
             for col, _ in enumerate(row_content):
                 row_content[col] = Move(row, col)
@@ -141,7 +142,7 @@ class TicTacToeBoard(tk.Tk):
                 button.grid(row=row, column=col, padx=5, pady=5, sticky="nsew")
 
     def play(self, event):
-        """Handle a player's move."""
+        #Handle a player's move
         clicked_btn = event.widget
         row, col = self._cells[clicked_btn]
         move = Move(row, col, self._game.current_player.label)
@@ -174,7 +175,7 @@ class TicTacToeBoard(tk.Tk):
                 button.config(highlightbackground="red")
 
     def reset_board(self):
-        """Reset the game's board to play again."""
+        #Reset the game's board to play again
         self._game.reset_game()
         self._update_display(msg="Ready?")
         for button in self._cells.keys():
@@ -182,11 +183,29 @@ class TicTacToeBoard(tk.Tk):
             button.config(text="")
             button.config(fg="black")
 
-def main():
-    """Create the game's board and run its main loop."""
+def multi_player():
+    #Create the game's board and run its main loop
     game = TicTacToeGame()
     board = TicTacToeBoard(game)
     board.mainloop()
+    
 
-if __name__ == "__main__":
-    main()
+
+def start():
+    print("Welcome to Tic-Tac-Toe!")
+    print("1. Single Player")
+    print("2. Multiplayer")
+    print("3. Exit")
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        print("Single Player")
+        single_player()
+    elif choice == "2":
+        print("Multiplayer")
+        multi_player()
+    elif choice == "3":
+        print("Exit")
+        sys.exit()
+    else:
+        print("Invalid choice. Please try again.")
+        start()
