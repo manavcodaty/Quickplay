@@ -333,10 +333,53 @@ class Player():
         self.turns_in_jail = turns_in_jail
         self.jail_card = jail_card
     def dice_roll(self):
-        return random.randint(1, 6)
+        dice1 = random.randint(1, 6)
+        dice2 = random.randint(1, 6)
+        total = dice1 + dice2
+        return total
         
         
-def start():
+def draw_board():
+    board = ["   21   22   23   24   25   26   27   28   29   30  31\n"
+            "  +------------------------------------------------------+\n"
+            "  |FREE|KENT|CHNC|INDI|ILLI|B&O |ATLN|VENT|WATR|MRVN|GOTO|\n"
+            "  |PARK|AVE |????|AVE |AVE |RAIL|AVE |AVE |WRKS|GARD|JAIL|\n"
+            "  +------------------------------------------------------+\n"
+            "  |NEWY|                                            |PACI|\n"
+            "20|AVE |                                            |AVE |32\n"
+            "  +----+                                            +---+-\n"
+            "  |TENN|                                            |NCAR|\n"
+            "19|AVE |                                            |AVE |33\n"
+            "  +----+                                            +----+\n"
+            "  |COMM|                                            |COMM|\n"
+            "18|CHST|                                            |CHST|34\n"
+            "  +----+                                            +----+\n"
+            "  |STJA|                                            |PENN|\n"
+            "17|PLCE|                                            |AVE |35\n"
+            "  +----+                                            +----+\n"
+            "  |PENN|                                            |SHRT|\n"
+            "16|RAIL|                                            |LINE|36\n"
+            "  +----+                                            +----+\n"
+            "  |VIRG|                                            |CHNC|\n"
+            "15|AVE |                                            |????|37\n"
+            "  +----+                                            +----+\n"
+            "  |STAT|                                            |PARK|\n"
+            "14|AVE |                                            |PLCE|38\n"
+            "  +----+                                            +----+\n"
+            "  |ELEC|                                            |LUXR|\n"
+            "13|COMP|                                            |TAX |39\n"
+            "  +----+                                            +----+\n"
+            "  |STCH|                                            |BRD |\n"
+            "12|PLCE|                                            |WALK|40\n"
+            "  +------------------------------------------------------+\n"
+            "  | IN |CONN|VERM|CHNC|ORNT|READ|INCM|BLTC|COMM|MDTN|PASS|\n"
+            "  |JAIL|AVE |AVE |????|AVE |RAIL|TAX |AVE |CHST|AVE | GO |\n"
+            "  +-------------------------------------------------+----+\n"
+            "    11   10   9    8    7    6    5    4    3    2    1  \n"]
+    for line in board[0].split('\n'):
+        print(line)
+
+def player_count():    
     count = 1
     num_players = int(input("How many players are there? "))
     for i in range(num_players):
@@ -345,4 +388,73 @@ def start():
         players["player" + str(count)] = Player(name)
         
     print("The game has started!")
+    
+def player_turn():
+    for player in players:
+        print("It is {}'s turn.".format(players[player].name))
+        print("You are currently on space {}.".format(players[player].position))
+        print("You have ${}.".format(players[player].money))
+        print("What would you like to do?")
+        print("1. Roll the dice")
+        print("2. View properties")
+        print("3. View board")
+        print("4. Trade")
+        print("5. End turn")
+        choice = input("Enter the number of your choice: ")
+        if choice == "1":
+            roll = players[player].dice_roll()
+            print("You rolled a {}.".format(roll))
+            players[player].position += roll
+            if players[player].position > 40:
+                players[player].position -= 40
+                players[player].money += 200
+                print("You passed GO! Collect $200.")
+            print("You landed on space {}.".format(properties[players[player].position - 1]["name"]))
+        elif choice == "2":
+            print("You own the following properties:")
+            for property in properties:
+                if property["owner"] == players[player].name:
+                    print(property["name"])
+        elif choice == "3":
+            draw_board()
+        elif choice == "4":
+            print("You can trade with the following players:")
+            for other_player in players:
+                if players[other_player].name != players[player].name:
+                    print(players[other_player].name)
+            trade_choice = input("Who would you like to trade with? ")
+            print("You can trade the following properties:")
+            for property in properties:
+                if property["owner"] == players[player].name:
+                    print(property["name"])
+            trade_property = input("Which property would you like to trade? ")
+            print("They can trade the following properties:")
+            for property in properties:
+                if property["owner"] == players[trade_choice].name:
+                    print(property["name"])
+            trade_property2 = input("Which property would you like to trade for? ")
+            print("What would you like to offer in return?")
+            print("1. Money")
+            print("2. Property")
+            trade_offer = input("Enter the number of your choice: ")
+            if trade_offer == "1":
+                money_offer = int(input("How much money would you like to offer? "))
+                print("You offered ${}.".format(money_offer))
+                print("They can accept or decline.")
+            elif trade_offer == "2":
+                print("You can offer the following properties:")
+                for property in properties:
+                    if property["owner"] == players[player].name:
+                        print(property["name"])
+                property_offer = input("Which property would you like to offer? ")
+                print("You offered {}.".format(property_offer))
+                print("They can accept or decline.")
+                
+        elif choice == "5":
+            print("Your turn has ended.")
+        else:
+            print("Invalid choice. Please try again.")
+    
+
+    
         
