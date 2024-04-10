@@ -1,4 +1,43 @@
+import random
 
+players_names = []
+players = {}
+
+
+
+
+chance_dict={1:"Advance to the nearest utility. If unowned, you may buy it from the bank. If owned, you may buy it from the bank. If owned, throw dice and pay owner ten times the amount thrown",
+             2:"Advance to the nearest railroad. If unowned you may buy it from the bank. If owned, pay owner twice the rent to which they are otherwise entitled.",
+             3:"Take a trip to Reading Railroad. If you pass go, collect $200.",
+             4:"GO TO JAIL. GO DIRECTLY TO JAIL DO NOT PASS GO DO NOT COLLECT $200",
+             5:"Go back 3 spaces.",
+             6:"Advance to Illinois Avenue. If you pass go, collect $200.",
+             7:"Speeding Fine $15",
+             8:"Advance to St. Charles Place. If you pass go, collecct $200",
+             9:"Your building loan matures, collect $150",
+             10:"You have been elected chairman of the board. Pay each player $50",
+             11:"Advance to the nearest railroad. If unowned you may buy it from the bank. If owned, pay owner twice the rent to which they are otherwise entitled.",
+             12:"Bank pays you dividend of $50",
+             13:"Advance to go, collect $200",
+             14:"Advance to Boardwalk",
+             15:"Get out of jail free. This card may be kept until needed or sold.",
+             16:"Make general repairs on all your property. For each house, pay $25, for each hotel, pay $100"}
+chest_dict={1:"Get out of jail free. This card may be kept until needed or sold.",
+            2:"Income tax refund, collect $20",
+            3:"Advance to go. Collect $200",
+            4:"School fees. Pay $50",
+            5:"Holiday fund matures collect $100",
+            6:"Life insurance matures. collect $100",
+            7:"You inherit $100",
+            8:"Receive $25 consultancy fee",
+            9:"You are assessed for street repairs. pay $40 per house and $115 per hotel you own.",
+            10:"GO TO JAIL GO DIRECTLY TO JAIL DO NOT PASS GO DO NOT COLLECT $200",
+            11:"From sale of stock, you get $50.",
+            12:"You have won second prize in a beauty contest. Collect $10",
+            13:"Bank error in your favor. collect $200.",
+            14:"Doctor's fees. Pay $50",
+            15:"It's your birthday! Collect $10 from every player.",
+            16:"Hospital fees. Pay $100"}
 properties = [{
     "name": "Meditaranian Avenue",
     "price": 60,
@@ -285,13 +324,25 @@ properties = [{
 ]
 
 class Player():
-    def __init__(self, name, money, position, properties, in_jail, turns_in_jail, get_out_of_jail_card, on_go):
+    def __init__(self, name, money=1500, position=1, properties=0, in_jail=False, turns_in_jail=0, jail_card=0):
         self.name = name
         self.money = money
         self.position = position
         self.properties = properties
         self.in_jail = in_jail
         self.turns_in_jail = turns_in_jail
-        self.get_out_of_jail_card = get_out_of_jail_card
-        self.on_go = on_go
-    
+        self.jail_card = jail_card
+    def dice_roll(self):
+        return random.randint(1, 6)
+        
+        
+def start():
+    count = 1
+    num_players = int(input("How many players are there? "))
+    for i in range(num_players):
+        name = input("What is player {}'s name? ".format(i+1))
+        players_names.append(Player(name))
+        players["player" + str(count)] = Player(name)
+        
+    print("The game has started!")
+        
