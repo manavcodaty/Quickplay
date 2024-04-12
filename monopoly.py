@@ -1,6 +1,5 @@
 import random
 
-players_names = []
 players = {}
 
 
@@ -337,124 +336,121 @@ class Player():
         dice2 = random.randint(1, 6)
         total = dice1 + dice2
         return total
+    def turn(self):
+        print(f"{self.name}'s turn")
         
         
-def draw_board():
-    board = ["   21   22   23   24   25   26   27   28   29   30  31\n"
-            "  +------------------------------------------------------+\n"
-            "  |FREE|KENT|CHNC|INDI|ILLI|B&O |ATLN|VENT|WATR|MRVN|GOTO|\n"
-            "  |PARK|AVE |????|AVE |AVE |RAIL|AVE |AVE |WRKS|GARD|JAIL|\n"
-            "  +------------------------------------------------------+\n"
-            "  |NEWY|                                            |PACI|\n"
-            "20|AVE |                                            |AVE |32\n"
-            "  +----+                                            +---+-\n"
-            "  |TENN|                                            |NCAR|\n"
-            "19|AVE |                                            |AVE |33\n"
-            "  +----+                                            +----+\n"
-            "  |COMM|                                            |COMM|\n"
-            "18|CHST|                                            |CHST|34\n"
-            "  +----+                                            +----+\n"
-            "  |STJA|                                            |PENN|\n"
-            "17|PLCE|                                            |AVE |35\n"
-            "  +----+                                            +----+\n"
-            "  |PENN|                                            |SHRT|\n"
-            "16|RAIL|                                            |LINE|36\n"
-            "  +----+                                            +----+\n"
-            "  |VIRG|                                            |CHNC|\n"
-            "15|AVE |                                            |????|37\n"
-            "  +----+                                            +----+\n"
-            "  |STAT|                                            |PARK|\n"
-            "14|AVE |                                            |PLCE|38\n"
-            "  +----+                                            +----+\n"
-            "  |ELEC|                                            |LUXR|\n"
-            "13|COMP|                                            |TAX |39\n"
-            "  +----+                                            +----+\n"
-            "  |STCH|                                            |BRD |\n"
-            "12|PLCE|                                            |WALK|40\n"
-            "  +------------------------------------------------------+\n"
-            "  | IN |CONN|VERM|CHNC|ORNT|READ|INCM|BLTC|COMM|MDTN|PASS|\n"
-            "  |JAIL|AVE |AVE |????|AVE |RAIL|TAX |AVE |CHST|AVE | GO |\n"
-            "  +-------------------------------------------------+----+\n"
-            "    11   10   9    8    7    6    5    4    3    2    1  \n"]
-    for line in board[0].split('\n'):
-        print(line)
+        
+class Game():
+    def __init__(self, players):
+        self.players = players
+        self.turn = 0
+        self.chance_cards = list(chance_dict.keys())
+        self.chest_cards = list(chest_dict.keys())
+    def jail_logic(self):
+        player = self.players[self.turn]
+        if player.in_jail:
+            player.turns_in_jail += 1
+            if player.jail_card > 0:
+                player.jail_card -= 1
+                player.in_jail = False
+                player.turns_in_jail = 0
+            elif player.turns_in_jail == 3:
+                player.money -= 50
+                player.in_jail = False
+                player.turns_in_jail = 0
+            else:
+                player.turns_in_jail += 1
+    def chance_logic(self):
+        player = self.players[self.turn]
+        if player.position == 7 or player.position == 22 or player.position == 36:
+                card = random.choice(self.chance_cards)
+                if card == 1:
+                    if player.position == 7:
+                        player.position = 12
+                    elif player.position == 22:
+                        player.position = 28
+                    else:
+                        player.position = 12
+                elif card == 2:
+                    if player.position == 7:
+                        player.position = 15
+                    elif player.position == 22:
+                        player.position = 25
+                    else:
+                        player.position = 5
+                elif card == 3:
+                    player.position = 1
+                    player.money += 200
+                elif card == 4:
+                    player.position = 11
+                elif card == 5:
+                    player.position -= 3
+                elif card == 6:
+                    player.position = 24
+                elif card == 7:
+                    player.money -= 15
+                elif card == 8:
+                    player.position = 11
+                elif card == 9:
+                    player.money += 150
+                elif card == 10:
+                    for p in self.players:
+                        p.money += 50
+                    player.money -= 150
+                elif card == 11:
+                    if player.position == 7:
+                        player.position = 15
+                    elif player.position == 22:
+                        player.position = 25
+    def go_logic(self):
+        player = self.players[self.turn]
+        if player.position > 40:
+            player.position -= 40
+            player.money += 200
+    
+        
+    def draw_board(self):
+        board = ["   21   22   23   24   25   26   27   28   29   30  31\n"
+                "  +------------------------------------------------------+\n"
+                "  |FREE|KENT|CHNC|INDI|ILLI|B&O |ATLN|VENT|WATR|MRVN|GOTO|\n"
+                "  |PARK|AVE |????|AVE |AVE |RAIL|AVE |AVE |WRKS|GARD|JAIL|\n"
+                "  +------------------------------------------------------+\n"
+                "  |NEWY|                                            |PACI|\n"
+                "20|AVE |                                            |AVE |32\n"
+                "  +----+                                            +---+-\n"
+                "  |TENN|                                            |NCAR|\n"
+                "19|AVE |                                            |AVE |33\n"
+                "  +----+                                            +----+\n"
+                "  |COMM|                                            |COMM|\n"
+                "18|CHST|                                            |CHST|34\n"
+                "  +----+                                            +----+\n"
+                "  |STJA|                                            |PENN|\n"
+                "17|PLCE|                                            |AVE |35\n"
+                "  +----+                                            +----+\n"
+                "  |PENN|                                            |SHRT|\n"
+                "16|RAIL|                                            |LINE|36\n"
+                "  +----+                                            +----+\n"
+                "  |VIRG|                                            |CHNC|\n"
+                "15|AVE |                                            |????|37\n"
+                "  +----+                                            +----+\n"
+                "  |STAT|                                            |PARK|\n"
+                "14|AVE |                                            |PLCE|38\n"
+                "  +----+                                            +----+\n"
+                "  |ELEC|                                            |LUXR|\n"
+                "13|COMP|                                            |TAX |39\n"
+                "  +----+                                            +----+\n"
+                "  |STCH|                                            |BRD |\n"
+                "12|PLCE|                                            |WALK|40\n"
+                "  +------------------------------------------------------+\n"
+                "  | IN |CONN|VERM|CHNC|ORNT|READ|INCM|BLTC|COMM|MDTN|PASS|\n"
+                "  |JAIL|AVE |AVE |????|AVE |RAIL|TAX |AVE |CHST|AVE | GO |\n"
+                "  +-------------------------------------------------+----+\n"
+                "    11   10   9    8    7    6    5    4    3    2    1  \n"]
+        for line in board[0].split('\n'):
+            print(line)
 
-def player_count():    
-    count = 1
-    num_players = int(input("How many players are there? "))
-    for i in range(num_players):
-        name = input("What is player {}'s name? ".format(i+1))
-        players_names.append(Player(name))
-        players["player" + str(count)] = Player(name)
-        
-    print("The game has started!")
-    
-def player_turn():
-    for player in players:
-        print("It is {}'s turn.".format(players[player].name))
-        print("You are currently on space {}.".format(players[player].position))
-        print("You have ${}.".format(players[player].money))
-        print("What would you like to do?")
-        print("1. Roll the dice")
-        print("2. View properties")
-        print("3. View board")
-        print("4. Trade")
-        print("5. End turn")
-        choice = input("Enter the number of your choice: ")
-        if choice == "1":
-            roll = players[player].dice_roll()
-            print("You rolled a {}.".format(roll))
-            players[player].position += roll
-            if players[player].position > 40:
-                players[player].position -= 40
-                players[player].money += 200
-                print("You passed GO! Collect $200.")
-            print("You landed on space {}.".format(properties[players[player].position - 1]["name"]))
-        elif choice == "2":
-            print("You own the following properties:")
-            for property in properties:
-                if property["owner"] == players[player].name:
-                    print(property["name"])
-        elif choice == "3":
-            draw_board()
-        elif choice == "4":
-            print("You can trade with the following players:")
-            for other_player in players:
-                if players[other_player].name != players[player].name:
-                    print(players[other_player].name)
-            trade_choice = input("Who would you like to trade with? ")
-            print("You can trade the following properties:")
-            for property in properties:
-                if property["owner"] == players[player].name:
-                    print(property["name"])
-            trade_property = input("Which property would you like to trade? ")
-            print("They can trade the following properties:")
-            for property in properties:
-                if property["owner"] == players[trade_choice].name:
-                    print(property["name"])
-            trade_property2 = input("Which property would you like to trade for? ")
-            print("What would you like to offer in return?")
-            print("1. Money")
-            print("2. Property")
-            trade_offer = input("Enter the number of your choice: ")
-            if trade_offer == "1":
-                money_offer = int(input("How much money would you like to offer? "))
-                print("You offered ${}.".format(money_offer))
-                print("They can accept or decline.")
-            elif trade_offer == "2":
-                print("You can offer the following properties:")
-                for property in properties:
-                    if property["owner"] == players[player].name:
-                        print(property["name"])
-                property_offer = input("Which property would you like to offer? ")
-                print("You offered {}.".format(property_offer))
-                print("They can accept or decline.")
-                
-        elif choice == "5":
-            print("Your turn has ended.")
-        else:
-            print("Invalid choice. Please try again.")
-    
+
 
     
         
