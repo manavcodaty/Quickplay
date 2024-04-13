@@ -39,7 +39,7 @@ chest_dict={1:"Get out of jail free. This card may be kept until needed or sold.
             16:"Hospital fees. Pay $100"}
 properties =[
     {
-    "name": "Meditaranian Avenue",
+    "name": "Mediterranean Avenue",
     "price": 60,
     "rent": 2,
     "house_cost": 50,
@@ -48,13 +48,13 @@ properties =[
     "color": "brown",
     "owner": None,
     "houses": 0,
-    "hotel": False
+    "hotel": False,
     "position": 1
     },
     {
         "name": "Community Chest",
-        "On community chest": True
-        "position": 2
+        "On community chest": True,
+        "position": 2,
     },
     {
         "name": "Baltic Avenue",
@@ -66,21 +66,21 @@ properties =[
         "color": "brown",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 3
+        "hotel": False,
+        "position": 3,
     },
     {
         "name": "Income Tax",
-        "price": 200
-        "position": 4
+        "price": 200,
+        "position": 4,
     },
     {
         "name": "Reading Railroad",
         "price": 200,
         "rent": 25,
         "mortgage": 100,
-        "owner": None
-        "position": 5
+        "owner": None,
+        "position": 5,
     },
     {
         "name": "Oriental Avenue",
@@ -92,14 +92,14 @@ properties =[
         "color": "light blue",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 6
+        "hotel": False,
+        "position": 6,
         
     },
     {
         "name": "Chance",
-        "On chance": True
-        "position": 7
+        "On chance": True,
+        "position": 7,
     },
     {
         "name": "Vermont Avenue",
@@ -111,8 +111,8 @@ properties =[
         "color": "light blue",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 8
+        "hotel": False,
+        "position": 8,
     },
     {
         "name": "Connecticut Avenue",
@@ -124,14 +124,14 @@ properties =[
         "color": "light blue",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 9
+        "hotel": False,
+        "position": 9,
     },
     {
         "name": "Jail",
-        "In jail": True
-        "Just visiting": True
-        "position": 10
+        "In jail": True,
+        "Just visiting": True,
+        "position": 10,
     },
     {
         "name": "St Charles Place",
@@ -143,14 +143,14 @@ properties =[
         "color": "pink",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 11
+        "hotel": False,
+        "position": 11,
     },
     {
         "name": "Electric Company",
         "price": 150,
-        "owner": None
-        "position": 12
+        "owner": None,
+        "position": 12,
     },
     {
         "name": "States Avenue",
@@ -162,8 +162,8 @@ properties =[
         "color": "pink",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 13
+        "hotel": False,
+        "position": 13,
     },
     {
         "name": "Virginia Avenue",
@@ -175,16 +175,16 @@ properties =[
         "color": "pink",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 14
+        "hotel": False,
+        "position": 14,
     },
     {
         "name": "Pennsylvania Railroad",
         "price": 200,
         "rent": 25,
         "mortgage": 100,
-        "owner": None
-        "position": 15
+        "owner": None,
+        "position": 15,
     },
     {
         "name": "St James Place",
@@ -196,13 +196,13 @@ properties =[
         "color": "orange",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 16
+        "hotel": False,
+        "position": 16,
     },
     {
         "name": "Community Chest",
-        "On community chest": True
-        "position": 17
+        "On community chest": True,
+        "position": 17,
     },
     {
         "name": "Tennessee Avenue",
@@ -214,8 +214,8 @@ properties =[
         "color": "orange",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 18
+        "hotel": False,
+        "position": 18,
     },
     {
         "name": "New York Avenue",
@@ -227,13 +227,13 @@ properties =[
         "color": "orange",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 19
+        "hotel": False,
+        "position": 19,
     },
     {
         "name": "Free Parking",
-        "Free parking": True
-        "position": 20
+        "Free parking": True,
+        "position": 20,
     },
     {
         "name": "Kentucky Avenue",
@@ -245,13 +245,13 @@ properties =[
         "color": "red",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 21
+        "hotel": False,
+        "position": 21,
     },
     {
         "name": "Chance",
-        "On chance": True
-        "position": 22
+        "On chance": True,
+        "position": 22,
 
     },
     {
@@ -264,8 +264,8 @@ properties =[
         "color": "red",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 23
+        "hotel": False,
+        "position": 23,
         
     },
     {
@@ -278,8 +278,8 @@ properties =[
         "color": "red",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 24
+        "hotel": False,
+        "position": 24,
         
     },
     {
@@ -287,8 +287,8 @@ properties =[
         "price": 200,
         "rent": 25,
         "mortgage": 100,
-        "owner": None
-        "position": 25
+        "owner": None,
+        "position": 25,
         
     },
     {
@@ -301,8 +301,8 @@ properties =[
         "color": "yellow",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 26
+        "hotel": False,
+        "position": 26,
     },
     {
         "name": "Ventnor Avenue",
@@ -314,15 +314,15 @@ properties =[
         "color": "yellow",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 27
+        "hotel": False,
+        "position": 27,
         
     },
     {
         "name": "Water Works",
         "price": 150,
-        "owner": None
-        "position": 28
+        "owner": None,
+        "position": 28,
         
     },
     {
@@ -335,14 +335,14 @@ properties =[
         "color": "yellow",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 29
+        "hotel": False,
+        "position": 29,
         
     },
     {
         "name": "Go To Jail",
-        "Go to jail": True
-        "position": 30
+        "Go to jail": True,
+        "position": 30,
         
     },
     {
@@ -355,8 +355,8 @@ properties =[
         "color": "green",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 31
+        "hotel": False,
+        "position": 31,
 
     },
     {
@@ -370,13 +370,13 @@ properties =[
         "color": "green",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        'position': 32
+        "hotel": False,
+        'position': 32,
     },
     {
         "name": "Community Chest",
-        "On community chest": True
-        "position": 33
+        "On community chest": True,
+        "position": 33,
         
     },
     {
@@ -389,27 +389,27 @@ properties =[
         "color": "green",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 34
-    },f
+        "hotel": False,
+        "position": 34,
+    },
     {
         "name": "Short Line Railroad",
         "price": 200,
         "rent": 25,
         "mortgage": 100,
-        "owner": None
-        "position": 35
+        "owner": None,
+        "position": 35,
     },
     {
         "name": "Chance",
-        "On chance": True
-        "position": 36
+        "On chance": True,
+        "position": 36,
         
     },
     {
         "name": "Luxury Tax",
-        "price": 75
-        "position": 37
+        "price": 75,
+        "position": 37,
         
     },
     {
@@ -422,8 +422,8 @@ properties =[
         "color": "dark blue",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 38
+        "hotel": False,
+        "position": 38,
     },
     {
         "name": "Boardwalk",
@@ -435,16 +435,17 @@ properties =[
         "color": "dark blue",
         "owner": None,
         "houses": 0,
-        "hotel": False
-        "position": 39
+        "hotel": False,
+        "position": 39,
         
     },
     {
         "name": "Go",
-        "Go": True
-        "position": 40
+        "Go": True,
+        "position": 40,
     
     }
+    
 ]
     
 
