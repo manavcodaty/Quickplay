@@ -37,7 +37,8 @@ chest_dict={1:"Get out of jail free. This card may be kept until needed or sold.
             14:"Doctor's fees. Pay $50",
             15:"It's your birthday! Collect $10 from every player.",
             16:"Hospital fees. Pay $100"}
-properties = [{
+properties =[
+    {
     "name": "Meditaranian Avenue",
     "price": 60,
     "rent": 2,
@@ -49,401 +50,402 @@ properties = [{
     "houses": 0,
     "hotel": False
     "position": 1
-},
-{
-    "name": "Community Chest",
-    "On community chest": True
-    "position": 2
-},
-{
-    "name": "Baltic Avenue",
-    "price": 60,
-    "rent": 4,
-    "house_cost": 50,
-    "hotel_cost": 50,
-    "mortgage": 30,
-    "color": "brown",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 3
-},
-{
-    "name": "Income Tax",
-    "price": 200
-    "position": 4
-},
-{
-    "name": "Reading Railroad",
-    "price": 200,
-    "rent": 25,
-    "mortgage": 100,
-    "owner": None
-    "position": 5
-},
-{
-    "name": "Oriental Avenue",
-    "price": 100,
-    "rent": 6,
-    "house_cost": 50,
-    "hotel_cost": 50,
-    "mortgage": 50,
-    "color": "light blue",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 6
-    
-},
-{
-    "name": "Chance",
-    "On chance": True
-    "position": 7
-},
-{
-    "name": "Vermont Avenue",
-    "price": 100,
-    "rent": 6,
-    "house_cost": 50,
-    "hotel_cost": 50,
-    "mortgage": 50,
-    "color": "light blue",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 8
-},
-{
-    "name": "Connecticut Avenue",
-    "price": 120,
-    "rent": 8,
-    "house_cost": 50,
-    "hotel_cost": 50,
-    "mortgage": 60,
-    "color": "light blue",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 9
-},
-{
-    "name": "Jail",
-    "In jail": True
-    "Just visiting": True
-    "position": 10
-},
-{
-    "name": "St Charles Place",
-    "price": 140,
-    "rent": 10,
-    "house_cost": 100,
-    "hotel_cost": 100,
-    "mortgage": 70,
-    "color": "pink",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 11
-},
-{
-    "name": "Electric Company",
-    "price": 150,
-    "owner": None
-    "position": 12
-},
-{
-    "name": "States Avenue",
-    "price": 140,
-    "rent": 10,
-    "house_cost": 100,
-    "hotel_cost": 100,
-    "mortgage": 70,
-    "color": "pink",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 13
-},
-{
-    "name": "Virginia Avenue",
-    "price": 160,
-    "rent": 12,
-    "house_cost": 100,
-    "hotel_cost": 100,
-    "mortgage": 80,
-    "color": "pink",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 14
-},
-{
-    "name": "Pennsylvania Railroad",
-    "price": 200,
-    "rent": 25,
-    "mortgage": 100,
-    "owner": None
-    "position": 15
-},
-{
-    "name": "St James Place",
-    "price": 180,
-    "rent": 14,
-    "house_cost": 100,
-    "hotel_cost": 100,
-    "mortgage": 90,
-    "color": "orange",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 16
-},
-{
-    "name": "Community Chest",
-    "On community chest": True
-    "position": 17
-},
-{
-    "name": "Tennessee Avenue",
-    "price": 180,
-    "rent": 14,
-    "house_cost": 100,
-    "hotel_cost": 100,
-    "mortgage": 90,
-    "color": "orange",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 18
-},
-{
-    "name": "New York Avenue",
-    "price": 200,
-    "rent": 16,
-    "house_cost": 100,
-    "hotel_cost": 100,
-    "mortgage": 100,
-    "color": "orange",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 19
-},
-{
-    "name": "Free Parking",
-    "Free parking": True
-    "position": 20
-},
-{
-    "name": "Kentucky Avenue",
-    "price": 220,
-    "rent": 18,
-    "house_cost": 150,
-    "hotel_cost": 150,
-    "mortgage": 110,
-    "color": "red",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 21
-},
-{
-    "name": "Chance",
-    "On chance": True
-    "position": 22
+    },
+    {
+        "name": "Community Chest",
+        "On community chest": True
+        "position": 2
+    },
+    {
+        "name": "Baltic Avenue",
+        "price": 60,
+        "rent": 4,
+        "house_cost": 50,
+        "hotel_cost": 50,
+        "mortgage": 30,
+        "color": "brown",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 3
+    },
+    {
+        "name": "Income Tax",
+        "price": 200
+        "position": 4
+    },
+    {
+        "name": "Reading Railroad",
+        "price": 200,
+        "rent": 25,
+        "mortgage": 100,
+        "owner": None
+        "position": 5
+    },
+    {
+        "name": "Oriental Avenue",
+        "price": 100,
+        "rent": 6,
+        "house_cost": 50,
+        "hotel_cost": 50,
+        "mortgage": 50,
+        "color": "light blue",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 6
+        
+    },
+    {
+        "name": "Chance",
+        "On chance": True
+        "position": 7
+    },
+    {
+        "name": "Vermont Avenue",
+        "price": 100,
+        "rent": 6,
+        "house_cost": 50,
+        "hotel_cost": 50,
+        "mortgage": 50,
+        "color": "light blue",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 8
+    },
+    {
+        "name": "Connecticut Avenue",
+        "price": 120,
+        "rent": 8,
+        "house_cost": 50,
+        "hotel_cost": 50,
+        "mortgage": 60,
+        "color": "light blue",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 9
+    },
+    {
+        "name": "Jail",
+        "In jail": True
+        "Just visiting": True
+        "position": 10
+    },
+    {
+        "name": "St Charles Place",
+        "price": 140,
+        "rent": 10,
+        "house_cost": 100,
+        "hotel_cost": 100,
+        "mortgage": 70,
+        "color": "pink",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 11
+    },
+    {
+        "name": "Electric Company",
+        "price": 150,
+        "owner": None
+        "position": 12
+    },
+    {
+        "name": "States Avenue",
+        "price": 140,
+        "rent": 10,
+        "house_cost": 100,
+        "hotel_cost": 100,
+        "mortgage": 70,
+        "color": "pink",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 13
+    },
+    {
+        "name": "Virginia Avenue",
+        "price": 160,
+        "rent": 12,
+        "house_cost": 100,
+        "hotel_cost": 100,
+        "mortgage": 80,
+        "color": "pink",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 14
+    },
+    {
+        "name": "Pennsylvania Railroad",
+        "price": 200,
+        "rent": 25,
+        "mortgage": 100,
+        "owner": None
+        "position": 15
+    },
+    {
+        "name": "St James Place",
+        "price": 180,
+        "rent": 14,
+        "house_cost": 100,
+        "hotel_cost": 100,
+        "mortgage": 90,
+        "color": "orange",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 16
+    },
+    {
+        "name": "Community Chest",
+        "On community chest": True
+        "position": 17
+    },
+    {
+        "name": "Tennessee Avenue",
+        "price": 180,
+        "rent": 14,
+        "house_cost": 100,
+        "hotel_cost": 100,
+        "mortgage": 90,
+        "color": "orange",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 18
+    },
+    {
+        "name": "New York Avenue",
+        "price": 200,
+        "rent": 16,
+        "house_cost": 100,
+        "hotel_cost": 100,
+        "mortgage": 100,
+        "color": "orange",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 19
+    },
+    {
+        "name": "Free Parking",
+        "Free parking": True
+        "position": 20
+    },
+    {
+        "name": "Kentucky Avenue",
+        "price": 220,
+        "rent": 18,
+        "house_cost": 150,
+        "hotel_cost": 150,
+        "mortgage": 110,
+        "color": "red",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 21
+    },
+    {
+        "name": "Chance",
+        "On chance": True
+        "position": 22
 
-},
-{
-    "name": "Indiana Avenue",
-    "price": 220,
-    "rent": 18,
-    "house_cost": 150,
-    "hotel_cost": 150,
-    "mortgage": 110,
-    "color": "red",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 23
-    
-},
-{
-    "name": "Illinois Avenue",
-    "price": 240,
-    "rent": 20,
-    "house_cost": 150,
-    "hotel_cost": 150,
-    "mortgage": 120,
-    "color": "red",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 24
-    
-},
-{
-    "name": "B&O Railroad",
-    "price": 200,
-    "rent": 25,
-    "mortgage": 100,
-    "owner": None
-    "position": 25
-    
-},
-{
-    "name": "Atlantic Avenue",
-    "price": 260,
-    "rent": 22,
-    "house_cost": 150,
-    "hotel_cost": 150,
-    "mortgage": 130,
-    "color": "yellow",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 26
-},
-{
-    "name": "Ventnor Avenue",
-    "price": 260,
-    "rent": 22,
-    "house_cost": 150,
-    "hotel_cost": 150,
-    "mortgage": 130,
-    "color": "yellow",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 27
-    
-},
-{
-    "name": "Water Works",
-    "price": 150,
-    "owner": None
-    "position": 28
-    
-},
-{
-    "name": "Marvin Gardens",
-    "price": 280,
-    "rent": 24,
-    "house_cost": 150,
-    "hotel_cost": 150,
-    "mortgage": 140,
-    "color": "yellow",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 29
-    
-},
-{
-    "name": "Go To Jail",
-    "Go to jail": True
-    "position": 30
-    
-},
-{
-    "name": "Pacific Avenue",
-    "price": 300,
-    "rent": 26,
-    "house_cost": 200,
-    "hotel_cost": 200,
-    "mortgage": 150,
-    "color": "green",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 31
+    },
+    {
+        "name": "Indiana Avenue",
+        "price": 220,
+        "rent": 18,
+        "house_cost": 150,
+        "hotel_cost": 150,
+        "mortgage": 110,
+        "color": "red",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 23
+        
+    },
+    {
+        "name": "Illinois Avenue",
+        "price": 240,
+        "rent": 20,
+        "house_cost": 150,
+        "hotel_cost": 150,
+        "mortgage": 120,
+        "color": "red",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 24
+        
+    },
+    {
+        "name": "B&O Railroad",
+        "price": 200,
+        "rent": 25,
+        "mortgage": 100,
+        "owner": None
+        "position": 25
+        
+    },
+    {
+        "name": "Atlantic Avenue",
+        "price": 260,
+        "rent": 22,
+        "house_cost": 150,
+        "hotel_cost": 150,
+        "mortgage": 130,
+        "color": "yellow",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 26
+    },
+    {
+        "name": "Ventnor Avenue",
+        "price": 260,
+        "rent": 22,
+        "house_cost": 150,
+        "hotel_cost": 150,
+        "mortgage": 130,
+        "color": "yellow",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 27
+        
+    },
+    {
+        "name": "Water Works",
+        "price": 150,
+        "owner": None
+        "position": 28
+        
+    },
+    {
+        "name": "Marvin Gardens",
+        "price": 280,
+        "rent": 24,
+        "house_cost": 150,
+        "hotel_cost": 150,
+        "mortgage": 140,
+        "color": "yellow",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 29
+        
+    },
+    {
+        "name": "Go To Jail",
+        "Go to jail": True
+        "position": 30
+        
+    },
+    {
+        "name": "Pacific Avenue",
+        "price": 300,
+        "rent": 26,
+        "house_cost": 200,
+        "hotel_cost": 200,
+        "mortgage": 150,
+        "color": "green",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 31
 
-},
-{
+    },
+    {
 
-    "name": "North Carolina Avenue",
-    "price": 300,
-    "rent": 26,
-    "house_cost": 200,
-    "hotel_cost": 200,
-    "mortgage": 150,
-    "color": "green",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    'position': 32
-},
-{
-    "name": "Community Chest",
-    "On community chest": True
-    "position": 33
+        "name": "North Carolina Avenue",
+        "price": 300,
+        "rent": 26,
+        "house_cost": 200,
+        "hotel_cost": 200,
+        "mortgage": 150,
+        "color": "green",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        'position': 32
+    },
+    {
+        "name": "Community Chest",
+        "On community chest": True
+        "position": 33
+        
+    },
+    {
+        "name": "Pennsylvania Avenue",
+        "price": 320,
+        "rent": 28,
+        "house_cost": 200,
+        "hotel_cost": 200,
+        "mortgage": 160,
+        "color": "green",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 34
+    },f
+    {
+        "name": "Short Line Railroad",
+        "price": 200,
+        "rent": 25,
+        "mortgage": 100,
+        "owner": None
+        "position": 35
+    },
+    {
+        "name": "Chance",
+        "On chance": True
+        "position": 36
+        
+    },
+    {
+        "name": "Luxury Tax",
+        "price": 75
+        "position": 37
+        
+    },
+    {
+        "name": "Park Place",
+        "price": 350,
+        "rent": 35,
+        "house_cost": 200,
+        "hotel_cost": 200,
+        "mortgage": 175,
+        "color": "dark blue",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 38
+    },
+    {
+        "name": "Boardwalk",
+        "price": 400,
+        "rent": 50,
+        "house_cost": 200,
+        "hotel_cost": 200,
+        "mortgage": 200,
+        "color": "dark blue",
+        "owner": None,
+        "houses": 0,
+        "hotel": False
+        "position": 39
+        
+    },
+    {
+        "name": "Go",
+        "Go": True
+        "position": 40
     
-},
-{
-    "name": "Pennsylvania Avenue",
-    "price": 320,
-    "rent": 28,
-    "house_cost": 200,
-    "hotel_cost": 200,
-    "mortgage": 160,
-    "color": "green",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 34
-},f
-{
-    "name": "Short Line Railroad",
-    "price": 200,
-    "rent": 25,
-    "mortgage": 100,
-    "owner": None
-    "position": 35
-},
-{
-    "name": "Chance",
-    "On chance": True
-    "position": 36
-    
-},
-{
-    "name": "Luxury Tax",
-    "price": 75
-    "position": 37
-    
-},
-{
-    "name": "Park Place",
-    "price": 350,
-    "rent": 35,
-    "house_cost": 200,
-    "hotel_cost": 200,
-    "mortgage": 175,
-    "color": "dark blue",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 38
-},
-{
-    "name": "Boardwalk",
-    "price": 400,
-    "rent": 50,
-    "house_cost": 200,
-    "hotel_cost": 200,
-    "mortgage": 200,
-    "color": "dark blue",
-    "owner": None,
-    "houses": 0,
-    "hotel": False
-    "position": 39
-      
-},
-{
-    "name": "Go",
-    "Go": True
-    "position": 40
-    
-}]
+    }
+]
     
 
 class Player():
