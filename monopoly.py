@@ -608,25 +608,23 @@ class Game():
         '''
         Game loop that cycles between players and their turns
         '''
-        for player in self.players:
-            current_player = self.players[player]
-            current_player.dice_roll()
-            current_position = current_player.calc_current_position()
-            current_player.display_player_box(current_position)
-            self.jail_logic()
-            self.chance_logic()
-            self.go_logic()
-            self.draw_board()
-            self.turn += 1
-            if self.turn == len(self.players):
-                self.turn = 0
-            
+        for player in self.players:  # Loop through each player
+            current_player = self.players[player]  # Get the current player
+            current_player.dice_roll()  # Roll the dice for the current player
+            current_position = current_player.calc_current_position()  # Calculate the current position of the player
+            current_player.display_player_box(current_position)  # Display the player's box on the board
+            self.jail_logic()  # Apply jail rules if the player is in jail
+            self.chance_logic()  # Apply chance card rules if the player lands on a chance space
+            self.go_logic()  # Apply rules for passing or landing on the Go space
+            self.draw_board()  # Draw the game board
+            self.turn += 1  # Increment the turn counter
+            if self.turn == len(self.players):  # If all players have had their turn
+                self.turn = 0  # Reset the turn counter to 0
 
-
+# Create a new game instance
 game = Game()
-game.initialize_game()
-game.play()
-
+game.initialize_game()  # Initialize the game
+game.play()  # Start the game
 
 
     
