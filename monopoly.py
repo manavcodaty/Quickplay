@@ -604,24 +604,28 @@ class Game():
  
             
 
-def play(self):
-    '''
-    Game loop that cycles between players and their turns
-    '''
-    for player in self.players:
-        current_player = self.players[player]
-        current_player.dice_roll()
-        current_position = current_player.calc_current_position()
-        current_player.display_player_box(current_position)
-        self.jail_logic()
-        self.chance_logic()
-        self.go_logic()
-        self.draw_board()
-        self.turn += 1
-        if self.turn == len(self.players):
-            self.turn = 0
-    
+    def play(self):
+        '''
+        Game loop that cycles between players and their turns
+        '''
+        for player in self.players:
+            current_player = self.players[player]
+            current_player.dice_roll()
+            current_position = current_player.calc_current_position()
+            current_player.display_player_box(current_position)
+            self.jail_logic()
+            self.chance_logic()
+            self.go_logic()
+            self.draw_board()
+            self.turn += 1
+            if self.turn == len(self.players):
+                self.turn = 0
+            
 
+
+game = Game()
+game.initialize_game()
+game.play()
 
 
 
