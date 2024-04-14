@@ -1,6 +1,6 @@
 import random
 
-players = {}
+
 
 
 
@@ -467,7 +467,8 @@ class Player():
         dice1 = random.randint(1, 6)
         dice2 = random.randint(1, 6)
         total = dice1 + dice2
-        return total
+        self.position += total
+        return total, self.position
     def calc_current_position(self):
         for item in properties:
             if item['position'] == self.position:
@@ -487,7 +488,7 @@ class Player():
         
         
 class Game():
-    def __init__(self, players):
+    def __init__(self, players={}):
         self.players = players
         self.turn = 0
         self.chance_cards = list(chance_dict.keys())
@@ -553,6 +554,11 @@ class Game():
         if player.position > 40:
             player.position -= 40
             player.money += 200
+    def initialize_game(self):
+        num_players = int(input("Enter the number of players: "))
+        for i in range(num_players):
+            name = input("Enter player name: ")
+            self.players[name] = Player(name)
     
         
     def draw_board(self):
@@ -594,6 +600,27 @@ class Game():
                 "    11   10   9    8    7    6    5    4    3    2    1  \n"]
         for line in board[0].split('\n'):
             print(line)
+            
+ 
+            
+
+def play(self):
+    '''
+    Game loop that cycles between players and their turns
+    '''
+    for player in self.players:
+        current_player = self.players[player]
+        current_player.dice_roll()
+        current_position = current_player.calc_current_position()
+        current_player.display_player_box(current_position)
+        self.jail_logic()
+        self.chance_logic()
+        self.go_logic()
+        self.draw_board()
+        self.turn += 1
+        if self.turn == len(self.players):
+            self.turn = 0
+    
 
 
 
