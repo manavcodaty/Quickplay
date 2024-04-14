@@ -450,7 +450,7 @@ properties =[
     
 
 class Player():
-    def __init__(self, name, money=1500, position=1, properties=0, in_jail=False, turns_in_jail=0, jail_card=0):
+    def __init__(self, name, money=1500, position=1, properties=[], in_jail=False, turns_in_jail=0, jail_card=0):
         self.name = name
         self.money = money
         self.position = position
@@ -463,14 +463,18 @@ class Player():
         dice2 = random.randint(1, 6)
         total = dice1 + dice2
         return total
-    def display_player_box(self):
+    def calc_current_position(self):
         for item in properties:
             if item['position'] == self.position:
                current_position = item['name']
+               return current_position
+    def display_player_box(self, current_position):
         print("-----------------------------------------------------------------------")
         print(f"Player: {self.name}")
         print(f"Money: ${self.money}")
         print(f"Position: {current_position}")
+        print(f"Properties: {self.properties}")
+        # Add more player info here 
         print("-----------------------------------------------------------------------")
         
 
