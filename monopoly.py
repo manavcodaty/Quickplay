@@ -37,6 +37,11 @@ chest_dict={1:"Get out of jail free. This card may be kept until needed or sold.
             14:"Doctor's fees. Pay $50",
             15:"It's your birthday! Collect $10 from every player.",
             16:"Hospital fees. Pay $100"}
+'''
+Properties:
+List of dictionaries where every index is a dictionary representing a property on the board.
+The index is equal to the players position on the board
+'''
 properties =[
     {
     "name": "Mediterranean Avenue",
@@ -492,7 +497,7 @@ class Game():
         if player.in_jail:
             player.turns_in_jail += 1
             if player.jail_card > 0:
-                player.jail_card -= 1
+                player.jail_card -= 1   
                 player.in_jail = False
                 player.turns_in_jail = 0
             elif player.turns_in_jail == 3:
