@@ -455,14 +455,14 @@ properties =[
     
 
 class Player():
-    def __init__(self, name, money=1500, position=1, properties=[], in_jail=False, turns_in_jail=0, jail_card=0):
+    def __init__(self, name):
         self.name = name
-        self.money = money
-        self.position = position
-        self.properties = properties
-        self.in_jail = in_jail
-        self.turns_in_jail = turns_in_jail
-        self.jail_card = jail_card
+        self.money = 1500
+        self.position = 1
+        self.properties = []
+        self.in_jail = False    
+        self.turns_in_jail = 0
+        self.have_jail_card = False
     def dice_roll(self):
         dice1 = random.randint(1, 6)
         dice2 = random.randint(1, 6)
@@ -488,67 +488,11 @@ class Player():
         
         
 class Game():
-    def __init__(self, players={}):
-        self.players = players
+    def __init__(self):
+        self.players = []
         self.turn = 0
         self.chance_cards = list(chance_dict.keys())
         self.chest_cards = list(chest_dict.keys())
-    def jail_logic(self):
-        player = self.players[self.turn]
-        if player.in_jail:
-            player.turns_in_jail += 1
-            if player.jail_card > 0:
-                player.jail_card -= 1   
-                player.in_jail = False
-                player.turns_in_jail = 0
-            elif player.turns_in_jail == 3:
-                player.money -= 50
-                player.in_jail = False
-                player.turns_in_jail = 0
-            else:
-                player.turns_in_jail += 1
-    def chance_logic(self):
-        player = self.players[self.turn]
-        if player.position == 7 or player.position == 22 or player.position == 36:
-                card = random.choice(self.chance_cards)
-                if card == 1:
-                    if player.position == 7:
-                        player.position = 12
-                    elif player.position == 22:
-                        player.position = 28
-                    else:
-                        player.position = 12
-                elif card == 2:
-                    if player.position == 7:
-                        player.position = 15
-                    elif player.position == 22:
-                        player.position = 25
-                    else:
-                        player.position = 5
-                elif card == 3:
-                    player.position = 1
-                    player.money += 200
-                elif card == 4:
-                    player.position = 11
-                elif card == 5:
-                    player.position -= 3
-                elif card == 6:
-                    player.position = 24
-                elif card == 7:
-                    player.money -= 15
-                elif card == 8:
-                    player.position = 11
-                elif card == 9:
-                    player.money += 150
-                elif card == 10:
-                    for p in self.players:
-                        p.money += 50
-                    player.money -= 150
-                elif card == 11:
-                    if player.position == 7:
-                        player.position = 15
-                    elif player.position == 22:
-                        player.position = 25
     def go_logic(self):
         player = self.players[self.turn]
         if player.position > 40:
@@ -558,7 +502,9 @@ class Game():
         num_players = int(input("Enter the number of players: "))
         for i in range(num_players):
             name = input("Enter player name: ")
-            self.players[name] = Player(name)
+            new_player = Player(name)
+            self.players.append(new_player)
+            
     
         
     def draw_board(self):
@@ -608,18 +554,9 @@ class Game():
         '''
         Game loop that cycles between players and their turns
         '''
-        for player in self.players:  # Loop through each player
-            current_player = self.players[player]  # Get the current player
-            current_player.dice_roll()  # Roll the dice for the current player
-            current_position = current_player.calc_current_position()  # Calculate the current position of the player
-            current_player.display_player_box(current_position)  # Display the player's box on the board
-            self.jail_logic()  # Apply jail rules if the player is in jail
-            self.chance_logic()  # Apply chance card rules if the player lands on a chance space
-            self.go_logic()  # Apply rules for passing or landing on the Go space
-            self.draw_board()  # Draw the game board
-            self.turn += 1  # Increment the turn counter
-            if self.turn == len(self.players):  # If all players have had their turn
-                self.turn = 0  # Reset the turn counter to 0
+        for player in self.players:
+            #code for player turn
+            print("xxxxxxxx")
 
 # Create a new game instance
 game = Game()
