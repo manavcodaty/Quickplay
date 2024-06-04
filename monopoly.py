@@ -556,7 +556,21 @@ class Game():
         '''
         for player in self.players:
             #code for player turn
-            print("xxxxxxxx")
+            while True:
+                print(f"{player.name}'s turn")
+                current_position = player.calc_current_position()
+                player.display_player_box(current_position)
+                player.dice_roll()
+                self.go_logic()
+                current_position = player.calc_current_position()
+                player.display_player_box(current_position)
+                
+                
+                input("Press Enter to continue")
+                self.turn += 1
+                if self.turn == len(self.players):
+                    self.turn = 0
+                    break
 
 # Create a new game instance
 game = Game()
