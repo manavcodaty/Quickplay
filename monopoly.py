@@ -1,10 +1,5 @@
 import random
 
-
-
-
-
-
 chance_dict={1:"Advance to the nearest utility. If unowned, you may buy it from the bank. If owned, you may buy it from the bank. If owned, throw dice and pay owner ten times the amount thrown",
              2:"Advance to the nearest railroad. If unowned you may buy it from the bank. If owned, pay owner twice the rent to which they are otherwise entitled.",
              3:"Take a trip to Reading Railroad. If you pass go, collect $200.",
