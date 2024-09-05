@@ -449,128 +449,70 @@ properties =[
 ]
     
 
-class Player():
-    def __init__(self, name):
+class Player:
+    def __init__(self, name, money, position):
         self.name = name
-        self.money = 1500
-        self.position = 1
+        self.money = money
+        self.position = position
         self.properties = []
-        self.in_jail = False    
-        self.turns_in_jail = 0
-        self.have_jail_card = False
-    def dice_roll(self):
-        dice1 = random.randint(1, 6)
-        dice2 = random.randint(1, 6)
-        total = dice1 + dice2
-        self.position += total
-        return total, self.position
-    def calc_current_position(self):
-        for item in properties:
-            if item['position'] == self.position:
-               current_position = item['name']
-               return current_position
-    def display_player_box(self, current_position):
-        print("-----------------------------------------------------------------------")
-        print(f"Player: {self.name}")
-        print(f"Money: ${self.money}")
-        print(f"Position: {current_position}")
-        print(f"Properties: {self.properties}")
-        # Add more player info here 
-        print("-----------------------------------------------------------------------")
-        
-
+        self.jail = False
+        self.jail_counter = 0
+        self.jail_card = False
+    def calc_position(self, roll):
+        self.position += roll
+        if self.position > 40:
+            self.position -= 40
+            self.money += 200
         
         
         
-class Game():
-    def __init__(self):
-        self.players = []
-        self.turn = 0
-        self.chance_cards = list(chance_dict.keys())
-        self.chest_cards = list(chest_dict.keys())
-    def go_logic(self):
-        player = self.players[self.turn]
-        if player.position > 40:
-            player.position -= 40
-            player.money += 200
-    def initialize_game(self):
-        num_players = int(input("Enter the number of players: "))
-        for i in range(num_players):
-            name = input("Enter player name: ")
-            new_player = Player(name)
-            self.players.append(new_player)
-            
-    
+def draw_board(self):
+    board = ["   21   22   23   24   25   26   27   28   29   30  31\n"
+            "  +------------------------------------------------------+\n"
+            "  |FREE|KENT|CHNC|INDI|ILLI|B&O |ATLN|VENT|WATR|MRVN|GOTO|\n"
+            "  |PARK|AVE |????|AVE |AVE |RAIL|AVE |AVE |WRKS|GARD|JAIL|\n"
+            "  +------------------------------------------------------+\n"
+            "  |NEWY|                                            |PACI|\n"
+            "20|AVE |                                            |AVE |32\n"
+            "  +----+                                            +---+-\n"
+            "  |TENN|                                            |NCAR|\n"
+            "19|AVE |                                            |AVE |33\n"
+            "  +----+                                            +----+\n"
+            "  |COMM|                                            |COMM|\n"
+            "18|CHST|                                            |CHST|34\n"
+            "  +----+                                            +----+\n"
+            "  |STJA|                                            |PENN|\n"
+            "17|PLCE|                                            |AVE |35\n"
+            "  +----+                                            +----+\n"
+            "  |PENN|                                            |SHRT|\n"
+            "16|RAIL|                                            |LINE|36\n"
+            "  +----+                                            +----+\n"
+            "  |VIRG|                                            |CHNC|\n"
+            "15|AVE |                                            |????|37\n"
+            "  +----+                                            +----+\n"
+            "  |STAT|                                            |PARK|\n"
+            "14|AVE |                                            |PLCE|38\n"
+            "  +----+                                            +----+\n"
+            "  |ELEC|                                            |LUXR|\n"
+            "13|COMP|                                            |TAX |39\n"
+            "  +----+                                            +----+\n"
+            "  |STCH|                                            |BRD |\n"
+            "12|PLCE|                                            |WALK|40\n"
+            "  +------------------------------------------------------+\n"
+            "  | IN |CONN|VERM|CHNC|ORNT|READ|INCM|BLTC|COMM|MDTN|PASS|\n"
+            "  |JAIL|AVE |AVE |????|AVE |RAIL|TAX |AVE |CHST|AVE | GO |\n"
+            "  +-------------------------------------------------+----+\n"
+            "    11   10   9    8    7    6    5    4    3    2    1  \n"]
+    for line in board[0].split('\n'):
+        print(line)
         
-    def draw_board(self):
-        board = ["   21   22   23   24   25   26   27   28   29   30  31\n"
-                "  +------------------------------------------------------+\n"
-                "  |FREE|KENT|CHNC|INDI|ILLI|B&O |ATLN|VENT|WATR|MRVN|GOTO|\n"
-                "  |PARK|AVE |????|AVE |AVE |RAIL|AVE |AVE |WRKS|GARD|JAIL|\n"
-                "  +------------------------------------------------------+\n"
-                "  |NEWY|                                            |PACI|\n"
-                "20|AVE |                                            |AVE |32\n"
-                "  +----+                                            +---+-\n"
-                "  |TENN|                                            |NCAR|\n"
-                "19|AVE |                                            |AVE |33\n"
-                "  +----+                                            +----+\n"
-                "  |COMM|                                            |COMM|\n"
-                "18|CHST|                                            |CHST|34\n"
-                "  +----+                                            +----+\n"
-                "  |STJA|                                            |PENN|\n"
-                "17|PLCE|                                            |AVE |35\n"
-                "  +----+                                            +----+\n"
-                "  |PENN|                                            |SHRT|\n"
-                "16|RAIL|                                            |LINE|36\n"
-                "  +----+                                            +----+\n"
-                "  |VIRG|                                            |CHNC|\n"
-                "15|AVE |                                            |????|37\n"
-                "  +----+                                            +----+\n"
-                "  |STAT|                                            |PARK|\n"
-                "14|AVE |                                            |PLCE|38\n"
-                "  +----+                                            +----+\n"
-                "  |ELEC|                                            |LUXR|\n"
-                "13|COMP|                                            |TAX |39\n"
-                "  +----+                                            +----+\n"
-                "  |STCH|                                            |BRD |\n"
-                "12|PLCE|                                            |WALK|40\n"
-                "  +------------------------------------------------------+\n"
-                "  | IN |CONN|VERM|CHNC|ORNT|READ|INCM|BLTC|COMM|MDTN|PASS|\n"
-                "  |JAIL|AVE |AVE |????|AVE |RAIL|TAX |AVE |CHST|AVE | GO |\n"
-                "  +-------------------------------------------------+----+\n"
-                "    11   10   9    8    7    6    5    4    3    2    1  \n"]
-        for line in board[0].split('\n'):
-            print(line)
-            
  
             
 
-    def play(self):
-        '''
-        Game loop that cycles between players and their turns
-        '''
-        for player in self.players:
-            #code for player turn
-            while True:
-                print(f"{player.name}'s turn")
-                current_position = player.calc_current_position()
-                player.display_player_box(current_position)
-                player.dice_roll()
-                self.go_logic()
-                current_position = player.calc_current_position()
-                player.display_player_box(current_position)
-                
-                
-                input("Press Enter to continue")
-                self.turn += 1
-                if self.turn == len(self.players):
-                    self.turn = 0
-                    break
 
-# Create a new game instance
-game = Game()
-game.initialize_game()  # Initialize the game
-game.play()  # Start the game
+            
+
+
 
 
     
