@@ -460,9 +460,10 @@ class Player:
         self.jail_card = False
     def calc_position(self, roll):
         self.position += roll
-        if self.position > 40:
+        if self.position <= 40:
             self.position -= 40
             self.money += 200
+        
         
         
         
