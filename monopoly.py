@@ -463,7 +463,10 @@ class Player:
         if self.position <= 40:
             self.position -= 40
             self.money += 200
-        
+            
+               
+class Game:
+    def __init__(self, players):
         
         
         
@@ -508,8 +511,15 @@ def draw_board(self):
         print(line)
         
  
-            
-
+ 
+def main():
+    print("Welcome to Monopoly!")
+    players = int(input("How many players are there?"))
+    for player in range(players):
+        name = input(f"Player {player + 1}, what is your name?")
+        player = Player(name, 1500, 1)
+        
+        
 
             
 
